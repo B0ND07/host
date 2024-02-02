@@ -12,7 +12,7 @@ axios.defaults.withCredentials = true;
 
 export const getFeturedHotels = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:5006/api/hotels/");
+    const { data } = await axios.get("https://api-i2ix.onrender.com/api/hotels/");
     const popular = data.slice(0, 4);
     dispatch(setHotels(popular));
   } catch (err) {
@@ -22,7 +22,7 @@ export const getFeturedHotels = () => async (dispatch) => {
 
 export const getHotelAction = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`http://localhost:5006/api/hotels/${id}`);
+    const { data } = await axios.get(`https://api-i2ix.onrender.com/api/hotels/${id}`);
 
     dispatch(setHotel(data));
   } catch (err) {
@@ -33,7 +33,7 @@ export const getHotelAction = (id) => async (dispatch) => {
 export const getSearchAction = (query) => async (dispatch) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5006/api/hotels/search/${query}`
+      `https://api-i2ix.onrender.com/api/hotels/search/${query}`
     );
 
     dispatch(SetSearch(data));
@@ -44,13 +44,13 @@ export const getSearchAction = (query) => async (dispatch) => {
 };
 
 export const getAllHotelsAction = () => async (dispatch) => {
-  const { data } = await axios.get("http://localhost:5006/api/hotels/");
+  const { data } = await axios.get("https://api-i2ix.onrender.com/api/hotels/");
   dispatch(setAllHotels(data));
 };
 
 export const updateHotelAction = (id, url) => async (dispatch) => {
   const { data } = await axios.put(
-    `http://localhost:5006/api/hotels/${id}`,
+    `https://api-i2ix.onrender.com/api/hotels/${id}`,
     url,
     { headers: { "Content-Type": "application/json" } }
   );
@@ -58,11 +58,11 @@ export const updateHotelAction = (id, url) => async (dispatch) => {
 };
 
 export const deleteHotelAction = (id) => async () => {
-  const { data } = await axios.delete(`http://localhost:5006/api/hotels/${id}`);
+  const { data } = await axios.delete(`https://api-i2ix.onrender.com/api/hotels/${id}`);
 };
 
 export const createHotelAction = (url) => async (dispatch) => {
-  const { data } = await axios.post(`http://localhost:5006/api/hotels/`, url, {
+  const { data } = await axios.post(`https://api-i2ix.onrender.com/api/hotels/`, url, {
     headers: { "Content-Type": "application/json" },
   });
   dispatch(setIsHotelUpdated(true));

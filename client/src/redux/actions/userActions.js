@@ -18,7 +18,7 @@ export const loginAction = (formData) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      "http://localhost:5006/api/auth/login",
+      "https://api-i2ix.onrender.com/api/auth/login",
       formData
     );
     
@@ -38,7 +38,7 @@ export const loginAction = (formData) => async (dispatch) => {
 export const registerAction = (formData) => async (dispatch) => {
   try {
     const { data } = await axios.post(
-      "http://localhost:5006/api/auth/register",
+      "https://api-i2ix.onrender.com/api/auth/register",
       formData
     );
  
@@ -48,7 +48,7 @@ export const registerAction = (formData) => async (dispatch) => {
 //logout
 export const logoutAction = () => async (dispatch) => {
   try {
-    await axios.get("http://localhost:5006/api/auth/logout");
+    await axios.get("https://api-i2ix.onrender.com/api/auth/logout");
 
     dispatch(logoutUser());
   } catch (err) {
@@ -58,7 +58,7 @@ export const logoutAction = () => async (dispatch) => {
 
 export const getUserAction = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:5006/api/auth/me");
+    const { data } = await axios.get("https://api-i2ix.onrender.com/api/auth/me");
    
     if(data.user){
     dispatch(setUser(data.user));}
@@ -69,7 +69,7 @@ export const getUserAction = () => async (dispatch) => {
 
 export const newBookingAction = (formData) => async () => {
   const { data } = await axios.post(
-    `http://localhost:5006/api/bookings/book`,
+    `https://api-i2ix.onrender.com/api/bookings/book`,
     formData
   );
   
@@ -77,7 +77,7 @@ export const newBookingAction = (formData) => async () => {
 
 export const getBookingsAction = (username) => async (dispatch) => {
   const { data } = await axios.get(
-    `http://localhost:5006/api/bookings/${username}`
+    `https://api-i2ix.onrender.com/api/bookings/${username}`
   );
 
   dispatch(setBooking(data.bookings));
@@ -85,13 +85,13 @@ export const getBookingsAction = (username) => async (dispatch) => {
 };
 
 export const getAllUsersAction = () => async (dispatch) => {
-  const { data } = await axios.get("http://localhost:5006/api/users/");
+  const { data } = await axios.get("https://api-i2ix.onrender.com/api/users/");
   dispatch(setUsers(data));
   
 };
 
 export const updateUserRoleAction = (id, role) => async () => {
-  const { data } = await axios.put(`http://localhost:5006/api/users/${id}`, {
+  const { data } = await axios.put(`https://api-i2ix.onrender.com/api/users/${id}`, {
     isAdmin: role,
   });
   
@@ -99,7 +99,7 @@ export const updateUserRoleAction = (id, role) => async () => {
 
 export const getAllBookingsAction = () => async (dispatch) => {
   const { data } = await axios.get(
-    "http://localhost:5006/api/bookings/allbookings/booked"
+    "https://api-i2ix.onrender.com/api/bookings/allbookings/booked"
   );
 
   dispatch(setAllBookings(data.bookings));
@@ -108,7 +108,7 @@ export const getAllBookingsAction = () => async (dispatch) => {
 export const updateUserAction =
   (oldusername, username, email) => async (dispatch) => {
     const { data } = await axios.put(
-      `http://localhost:5006/api/users/updateprofile/${oldusername}`,
+      `https://api-i2ix.onrender.com/api/users/updateprofile/${oldusername}`,
       {
         username: username,
         email: email,
@@ -121,7 +121,7 @@ export const updateUserAction =
   export const deleteUserAction =
   (username) => async (dispatch) => {
     const { data } = await axios.delete(
-      `http://localhost:5006/api/users/delete/${username}`,
+      `https://api-i2ix.onrender.com/api/users/delete/${username}`,
       
     );
    
