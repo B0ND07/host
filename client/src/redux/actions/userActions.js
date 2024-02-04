@@ -18,7 +18,7 @@ export const loginAction = (formData) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      "https://api-i2ix.onrender.com/api/auth/login",
+      "https://host-blond.vercel.app/api/auth/login",
       formData
     );
     
@@ -38,7 +38,7 @@ export const loginAction = (formData) => async (dispatch) => {
 export const registerAction = (formData) => async (dispatch) => {
   try {
     const { data } = await axios.post(
-      "https://api-i2ix.onrender.com/api/auth/register",
+      "https://host-blond.vercel.app/api/auth/register",
       formData
     );
  
@@ -48,7 +48,7 @@ export const registerAction = (formData) => async (dispatch) => {
 //logout
 export const logoutAction = () => async (dispatch) => {
   try {
-    await axios.get("https://api-i2ix.onrender.com/api/auth/logout");
+    await axios.get("https://host-blond.vercel.app/api/auth/logout");
 
     dispatch(logoutUser());
   } catch (err) {
@@ -58,7 +58,7 @@ export const logoutAction = () => async (dispatch) => {
 
 export const getUserAction = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("https://api-i2ix.onrender.com/api/auth/me");
+    const { data } = await axios.get("https://host-blond.vercel.app/api/auth/me");
    
     if(data.user){
     dispatch(setUser(data.user));}
@@ -70,7 +70,7 @@ export const getUserAction = () => async (dispatch) => {
 export const newBookingAction = (formData) => async (dispatch) => {
   try{
   await axios.post(
-    `http://localhost:5006/api/bookings/book`,
+    `https://host-blond.vercel.app/api/bookings/book`,
     formData
   );
 } catch (err) {
@@ -82,7 +82,7 @@ export const newBookingAction = (formData) => async (dispatch) => {
 export const getBookingsAction = (username) => async (dispatch) => {
   try{
   const { data } = await axios.get(
-    `https://api-i2ix.onrender.com/api/bookings/${username}`
+    `https://host-blond.vercel.app/api/bookings/${username}`
   );
 
   dispatch(setBooking(data.bookings));
@@ -94,7 +94,7 @@ export const getBookingsAction = (username) => async (dispatch) => {
 
 export const getAllUsersAction = () => async (dispatch) => {
   try{
-  const { data } = await axios.get("http://localhost:5006/api/users/");
+  const { data } = await axios.get("https://host-blond.vercel.app/api/users/");
   dispatch(setUsers(data));
 } catch (err) {
   dispatch(setError(err.response.data.message));
@@ -104,7 +104,7 @@ export const getAllUsersAction = () => async (dispatch) => {
 
 export const updateUserRoleAction = (id, role) => async (dispatch) => {
   try{
-  await axios.put(`http://localhost:5006/api/users/${id}`, {
+  await axios.put(`https://host-blond.vercel.app/api/users/${id}`, {
     isAdmin: role,
   });
 } catch (err) {
@@ -116,7 +116,7 @@ export const updateUserRoleAction = (id, role) => async (dispatch) => {
 export const getAllBookingsAction = () => async (dispatch) => {
   try{
   const { data } = await axios.get(
-    "https://api-i2ix.onrender.com/api/bookings/allbookings/booked"
+    "https://host-blond.vercel.app/api/bookings/allbookings/booked"
   );
 
   dispatch(setAllBookings(data.bookings));
@@ -129,7 +129,7 @@ export const updateUserAction =
   (oldusername, username, email) => async (dispatch) => {
     try{
     const { data } = await axios.put(
-      `https://api-i2ix.onrender.com/api/users/updateprofile/${oldusername}`,
+      `https://host-blond.vercel.app/api/users/updateprofile/${oldusername}`,
       {
         username: username,
         email: email,
@@ -146,7 +146,7 @@ export const updateUserAction =
   (username) => async (dispatch) => {
     try{
     await axios.delete(
-      `http://localhost:5006/api/users/delete/${username}`,
+      `https://host-blond.vercel.app/api/users/delete/${username}`,
     );
   } catch (err) {
     dispatch(setError(err.response.data.message));
