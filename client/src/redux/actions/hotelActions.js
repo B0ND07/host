@@ -94,10 +94,10 @@ export const createHotelAction = (url) => async (dispatch) => {
   }
 };
 
-export const bookedHotelAction = (formData) => async (dispatch) => {
-  try {
-    await axios.post("https://host-blond.vercel.app/api/hotels/booked", formData);
-  } catch (err) {
-    dispatch(setError(err.response.data.message));
-  }
-};
+// export const bookedHotelAction = (formData) => async (dispatch) => {
+//   try {
+//     await axios.post("http://localhost:5006/api/hotels/booked", formData);
+//   } catch (err) {
+//     dispatch(setError(err.response.data.message));
+//   }
+// };
