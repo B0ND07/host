@@ -71,7 +71,7 @@ const Booking = () => {
       return;
     }
     // stripe
-    const res=await axios.post(`http://localhost:5006/api/bookings/payment/${hotel._id}`,{user: name,
+    const res=await axios.post(`https://host-blond.vercel.app/api/bookings/payment/${hotel._id}`,{user: name,
         hotelId:hotel?._id,
         city: hotel?.city,
         hotel: hotel?.name,
