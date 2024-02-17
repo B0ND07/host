@@ -134,7 +134,7 @@ export const getAllBookingsAction = () => async (dispatch) => {
   try {
     dispatch(setLoading(true));
 
-    const { data } = await axios.get("http://localhost:5006/api/bookings/allbookings/booked");
+    const { data } = await axios.get("https://host-blond.vercel.app/api/bookings/allbookings/booked");
 
     
     const sortedData = data.bookings.sort((a, b) => {
