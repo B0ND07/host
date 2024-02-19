@@ -56,8 +56,7 @@ export const registerAction = (formData) => async (dispatch) => {
 export const logoutAction = () => async (dispatch) => {
   try {
     dispatch(setLoading(true))
-    await axios.get("https://host-blond.vercel.app/api/auth/logout");
-
+    await axios.post("https://host-blond.vercel.app/api/auth/logout");
     dispatch(logoutUser());
     dispatch(setLoading(false))
   } catch (err) {
