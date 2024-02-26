@@ -59,7 +59,7 @@ export const GloginAction = (formData) => async (dispatch) => {
   try {
     
     const { data } = await axios.post(
-      "http://localhost:5006/api/auth/gauth",
+      "https://host-blond.vercel.app/api/auth/gauth",
       formData
     );
     
