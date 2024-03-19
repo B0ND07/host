@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://napbook.vercel.app"],
+    origin: ["https://napbook.vercel.app","http://localhost:3000"],
     credentials: true,
   })
 );
